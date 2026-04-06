@@ -28,9 +28,12 @@
 
   <script>
     const params = new URLSearchParams(location.search);
-    const videoId = params.get("videoId") || "dQw4w9WgXcQ";
+    const videoId = (params.get("videoId") || "dQw4w9WgXcQ").trim();
+
     document.getElementById("ytFrame").src =
-      "https://www.youtube.com/embed/" + videoId + "?autoplay=1&mute=1&playsinline=1&rel=0&modestbranding=1";
+      "https://www.youtube-nocookie.com/embed/" +
+      encodeURIComponent(videoId) +
+      "?autoplay=1&mute=1&playsinline=1&rel=0&modestbranding=1";
   </script>
 </body>
 </html>
